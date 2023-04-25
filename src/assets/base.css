@@ -1,0 +1,82 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  /* --white-bg: #d4d4d4;
+  --white-layout: #b3b1b1;
+  --white-border: #ccc; */
+  --white-bg: #d4d4d4;
+  --white-layout: #b3b1b1;
+  --white-border: #ccc;
+  
+  --black-bg: #1e1e1e;
+  --black-layout: #252526;
+  --black-border: #333;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--white-bg);
+  --color-layout: var(--white-layout);
+  --color-font: var(--black-bg);
+  --color-border: var(--black-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--black-bg);
+    --color-layout: var(--black-layout);
+    --color-font: var(--white-bg);
+    --color-border: var(--white-border);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+  color: var(--color-font);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222d46;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #293550;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #293550;
+}
+
+::-webkit-scrollbar-corner {
+  background: #222d46;
+}

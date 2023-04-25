@@ -1,0 +1,226 @@
+{
+    "data": [
+        {
+            "name": "邮箱",
+            "icon": "youxiang",
+            "data": [
+                {
+                    "name": "Gmail",
+                    "url": "https://mail.google.com/mail/u/0/#inbox"
+                },
+                {
+                    "name": "Hotmail",
+                    "url": "https://outlook.live.com/mail/"
+                },
+                {
+                    "name": "网易邮箱",
+                    "url": "https://mail.163.com/"
+                },
+                {
+                    "name": "新浪邮箱",
+                    "url": "https://mail.sina.com.cn/"
+                },
+                {
+                    "name": "QQ邮箱",
+                    "url": "https://mail.qq.com/"
+                },
+                {
+                    "name": "阿里邮箱",
+                    "url": "https://qiye.aliyun.com/",
+                    "icon": "https://qiye.aliyun.com/static/0.1.45/images/favicon.ico"
+                }
+            ]
+        },
+        {
+            "name": "搜索引擎",
+            "icon": "sousuo",
+            "data": [
+                {
+                    "name": "Google",
+                    "url": "https://www.google.com/"
+                },
+                {
+                    "name": "DuckGo",
+                    "url": "https://duckduckgo.com/"
+                },
+                {
+                    "name": "Bing",
+                    "url": "https://www.bing.com/"
+                },
+                {
+                    "name": "百度",
+                    "url": "https://www.baidu.com"
+                },
+                {
+                    "name": "雅虎",
+                    "url": "https://hk.yahoo.com/"
+                },
+                {
+                    "name": "搜狗",
+                    "url": "https://www.sogou.com/"
+                },
+                {
+                    "name": "NAVER",
+                    "url": "https://www.naver.com/"
+                }
+            ]
+        },
+        {
+            "name": "开发",
+            "icon": "kongzhitai",
+            "data": [
+                {
+                    "name": "W3school",
+                    "url": "http://www.w3school.com.cn/",
+                    "icon": "https://www.w3school.com.cn/ui2019/logo-96-red.png"
+                },
+                {
+                    "name": "Github",
+                    "url": "https://github.com/"
+                },
+                {
+                    "name": "Codepen",
+                    "url": "https://codepen.io/"
+                },
+                {
+                    "name": "吾爱破解",
+                    "url": "https://www.52pojie.cn/"
+                },
+                {
+                    "name": "SF思否",
+                    "url": "https://segmentfault.com/",
+                    "icon": "https://static.segmentfault.com/main_site_next/57ea7a41/favicon.ico"
+                },
+                {
+                    "name": "CdnJs",
+                    "url": "https://cdnjs.com/",
+                    "icon": "https://cdnjs.com/favicon.png"
+                },
+                {
+                    "name": "Font A.",
+                    "url": "https://fontawesome.com/icons?d=gallery&m=free"
+                },
+                {
+                    "name": "MSDN下载",
+                    "url": "https://msdn.itellyou.cn/"
+                },
+                {
+                    "name": "cloudflare",
+                    "url": "https://dash.cloudflare.com/"
+                },
+                {
+                    "name": "Swiper",
+                    "url": "https://www.swiper.com.cn/"
+                }
+            ]
+        },
+        {
+            "name": "社交资讯",
+            "icon": "msg",
+            "data": [
+                {
+                    "name": "微博",
+                    "url": "https://www.weibo.com"
+                },
+                {
+                    "name": "知乎",
+                    "url": "https://www.zhihu.com/"
+                },
+                {
+                    "name": "豆瓣",
+                    "url": "https://www.douban.com/"
+                },
+                {
+                    "name": "简书",
+                    "url": "https://www.jianshu.com/"
+                },
+                {
+                    "name": "V2EX",
+                    "url": "https://www.v2ex.com/"
+                },
+                {
+                    "name": "Instagram",
+                    "url": "https://www.instagram.com"
+                },
+                {
+                    "name": "Twitter",
+                    "url": "https://www.twitter.com"
+                },
+                {
+                    "name": "Facebook",
+                    "url": "https://www.facebook.com"
+                }
+            ]
+        },
+        {
+            "name": "设计视觉",
+            "icon": "sheji",
+            "data": [
+                {
+                    "name": "Pinterest",
+                    "url": "https://www.pinterest.com/"
+                },
+                {
+                    "name": "Behance",
+                    "url": "https://www.behance.net/"
+                },
+                {
+                    "name": "Dribbble",
+                    "url": "https://www.dribbble.com/",
+                    "icon": "https://cdn.dribbble.com/assets/dribbble-vector-ball-f320a6ba48a4ccf416ef6e396e204c899874565b694593834b6c23f978394498.svg"
+                },
+                {
+                    "name": "花瓣",
+                    "url": "https://huaban.com/"
+                },
+                {
+                    "name": "站酷",
+                    "url": "https://www.zcool.com.cn/",
+                    "icon": "https://static.zcool.cn/git_z/z/site/favicon.ico?version=1618914637608"
+                },
+                {
+                    "name": "阿里图标",
+                    "url": "https://www.iconfont.cn/"
+                },
+                {
+                    "name": "IconFinder",
+                    "url": "https://www.iconfinder.com/"
+                },
+                {
+                    "name": "优设教程",
+                    "url": "https://uiiiuiii.com/"
+                }
+            ]
+        },
+        {
+            "name": "视频媒体",
+            "icon": "shipin",
+            "data": [
+                {
+                    "name": "Youtube",
+                    "url": "https://www.youtube.com/"
+                },
+                {
+                    "name": "腾讯视频",
+                    "url": "https://v.qq.com/"
+                },
+                {
+                    "name": "优酷",
+                    "url": "https://www.youku.com/"
+                },
+                {
+                    "name": "爱奇艺",
+                    "url": "https://www.iqiyi.com/"
+                },
+                {
+                    "name": "ACFUN",
+                    "url": "http://www.acfun.cn/index.html"
+                },
+                {
+                    "name": "哔哩哔哩",
+                    "url": "https://www.bilibili.com/"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "id": "bing",
+        "name": "必应",
+        "des": "比百度好，且国内能用",
+        "suggestion": "https://cn.bing.com/AS/Suggestions?qry={i}",
+        "result": "https://cn.bing.com/search?q={i}",
+        "icon": "./icon/bing.svg"
+    },
+    {
+        "id": "google",
+        "name": "谷歌",
+        "des": "谷歌，最好用啦",
+        "suggestion": "https://www.google.com/complete/search?q={i}",
+        "result": "https://www.google.com/search?q={i}",
+        "icon": "./icon/g.svg"
+    },
+    {
+        "id": "duckduckgo",
+        "name": "DuckDuckGo",
+        "des": "开启不受网络追踪的搜索之旅",
+        "suggestion": "https://duckduckgo.com/ac/?q={i}",
+        "result": "https://duckduckgo.com/?q={i}",
+        "icon": "./icon/duckduckgo.svg"
+    },
+    {
+        "id": "bilibili",
+        "name": "BiliBili",
+        "des": "哔哩哔哩 干杯~",
+        "suggestion": "https://s.search.bilibili.com/main/suggest?term={i}",
+        "result": "https://search.bilibili.com/all?keyword={i}",
+        "icon": "./icon/bilibili.svg"
+    },
+    {
+        "id": "github",
+        "name": "GitHub",
+        "des": "全球最大共享网站",
+        "suggestion": false,
+        "result": "https://github.com/search?q={i}",
+        "icon": "./icon/github.svg"
+    },
+    {
+        "id": "zhihu",
+        "name": "知乎",
+        "des": "不知道怎么说。",
+        "suggestion": "https://www.zhihu.com/api/v4/search/suggest?q={i}",
+        "result": "https://www.zhihu.com/search?type=content&q={i}",
+        "icon": "./icon/zhihu.svg"
+    },
+    {
+        "id": "baidu",
+        "name": "百度",
+        "des": "百度一下，你就知道",
+        "suggestion": "https://suggestion.baidu.com/su?wd={i}",
+        "result": "https://www.baidu.com/s?wd={i}",
+        "icon": "./icon/baidu.svg"
+    }
+]
