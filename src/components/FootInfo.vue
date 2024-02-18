@@ -1,8 +1,8 @@
 <template>
     <div class="foot" style="height: 40px;">
         <a href="https://mupsy.net/" style="color: #777;">主页</a> |
-        <a href="https://github.com/mupsycho" style="color: #777;">GitHub</a><br>
-        © 2021-2023 by <a href="https://mupsy.net/">Mupsy</a> . All rights reserved.
+        <a href="https://github.com/mupsycho" target="_blank" style="color: #777;">GitHub</a><br>
+        © 2021-2024 by <a href="https://mupsy.net/">Mupsy</a> . All rights reserved.
     </div>
 </template>
 

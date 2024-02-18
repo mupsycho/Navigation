@@ -4,7 +4,10 @@
         "name": "必应",
         "des": "比百度好，且国内能用",
         "suggestion": "https://cn.bing.com/AS/Suggestions?qry={i}",
-        "result": "https://cn.bing.com/search?q={i}",
+        "url": "https://cn.bing.com/search",
+        "param": {
+            "main": "q"
+        },
         "icon": "./icon/bing.svg"
     },
     {
@@ -12,7 +15,10 @@
         "name": "谷歌",
         "des": "谷歌，最好用啦",
         "suggestion": "https://www.google.com/complete/search?q={i}",
-        "result": "https://www.google.com/search?q={i}",
+        "url": "https://www.google.com/search",
+        "param": {
+            "main": "q"
+        },
         "icon": "./icon/g.svg"
     },
     {
@@ -20,7 +26,10 @@
         "name": "DuckDuckGo",
         "des": "开启不受网络追踪的搜索之旅",
         "suggestion": "https://duckduckgo.com/ac/?q={i}",
-        "result": "https://duckduckgo.com/?q={i}",
+        "url": "https://duckduckgo.com/",
+        "param": {
+            "main": "q"
+        },
         "icon": "./icon/duckduckgo.svg"
     },
     {
@@ -28,7 +37,10 @@
         "name": "BiliBili",
         "des": "哔哩哔哩 干杯~",
         "suggestion": "https://s.search.bilibili.com/main/suggest?term={i}",
-        "result": "https://search.bilibili.com/all?keyword={i}",
+        "url": "https://search.bilibili.com/all",
+        "param": {
+            "main": "keyword"
+        },
         "icon": "./icon/bilibili.svg"
     },
     {
@@ -36,7 +48,13 @@
         "name": "GitHub",
         "des": "全球最大共享网站",
         "suggestion": false,
-        "result": "https://github.com/search?q={i}",
+        "url": "https://github.com/search",
+        "param": {
+            "main": "q",
+            "other": {
+                "type": "repositories"
+            }
+        },
         "icon": "./icon/github.svg"
     },
     {
@@ -44,7 +62,13 @@
         "name": "知乎",
         "des": "不知道怎么说。",
         "suggestion": "https://www.zhihu.com/api/v4/search/suggest?q={i}",
-        "result": "https://www.zhihu.com/search?type=content&q={i}",
+        "url": "https://www.zhihu.com/search",
+        "param": {
+            "main": "q",
+            "other": {
+                "type": "content"
+            }
+        },
         "icon": "./icon/zhihu.svg"
     },
     {
@@ -52,7 +76,10 @@
         "name": "百度",
         "des": "百度一下，你就知道",
         "suggestion": "https://suggestion.baidu.com/su?wd={i}",
-        "result": "https://www.baidu.com/s?wd={i}",
+        "url": "https://www.baidu.com/s",
+        "param": {
+            "main": "wd"
+        },
         "icon": "./icon/baidu.svg"
     }
 ]
