@@ -3,12 +3,14 @@
         <div v-for="(v, i) in search"
              :style="`--i: ${getRenderInfo(i).ri}; --r: ${getRenderInfo(i).rr}; --j: ${getRenderInfo(i).rj - 1}`"
              @click="clickChoose(v)">
-            <img :src="v.icon" alt="">
+            <span>{{ v.name[0].toLocaleUpperCase() }}</span>
+            <img v-if="v.icon" :src="v.icon" alt="">
         </div>
     </div>
 </template>
 
 <script setup>
+import { onMounted, onUnmounted } from "vue";
 import { storeToRefs } from 'pinia'
 import { useStore } from '@/store/search';
 
@@ -38,10 +40,20 @@ const getRenderInfo = (i) => {
     return { ri, rj, rr };
 };
 
-const emit = defineEmits(["changeSearch"]);
+const emit = defineEmits(["changeSearch", "lostFocus"]);
 const clickChoose = function(item) {
     emit("changeSearch", item);
 }
+
+const topEvent = function(e) {
+    emit("lostFocus");
+}
+onMounted(() => {
+    document.body.addEventListener("click", topEvent);
+});
+onUnmounted(() => {
+    document.body.removeEventListener("click", topEvent);
+});
 </script>
 
 <style scoped>
@@ -63,6 +75,23 @@ const clickChoose = function(item) {
     animation: 0.3s ease-in-out trans forwards;
 }
 
+.search-select>div span {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    margin: 2px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-background);
+    border-radius: 50%;
+    border: 1px solid var(--color-font);
+}
 .search-select>div img {
     width: 32px;
     height: 32px;

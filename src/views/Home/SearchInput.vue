@@ -10,10 +10,13 @@
                    v-model="m"
                    autofocus
                    autocomplete="off" />
-            <div class="search-logo"
+            <div :class="{ 'search-logo': true }"
                  :style="{ backgroundImage: 'url(' + searchInfo.icon + ')' }"
                  @click.stop="searchSelectView = !searchSelectView">
-                <search-select v-if="searchSelectView" @changeSearch="changeSearch"></search-select>
+                 <div v-if="searchSelectView" class="editor">+</div>
+                <search-select v-if="searchSelectView"
+                               @changeSearch="changeSearch"
+                               @lostFocus="searchSelectView = false"></search-select>
             </div>
             <div class="icon-cha" @click="m = ''" v-if="m != ''"></div>
             <div class="icon-search" @click="clickSubmit"></div>
@@ -22,9 +25,13 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { showDialog } from "@/utils/dialog.js";
 import SearchSelect from "./SearchSelect.vue";
+
+import { useStore } from '@/store/search';
+const store = useStore();
+
 // 搜索框
 const dom = ref();
 const m = ref("");
@@ -40,6 +47,7 @@ const formSubmit = function (e) {
 const clickSubmit = function (e) {
     dom.value.dispatchEvent(new Event("submit", {'bubbles': true, 'cancelable' : true}));
 };
+
 // 选择
 const searchSelectView = ref(false);
 const searchInfo = reactive({
@@ -51,13 +59,23 @@ const searchInfo = reactive({
     icon: "./icon/bing.svg"
 });
 const changeSearch = function(item) {
-    searchInfo.action = item.url
-    searchInfo.placeholder = item.des
-    searchInfo.name = item.param.main
-    searchInfo.icon = item.icon
+    store.changeCurr(item);
+    loadSearch();
+}
+const loadSearch = function () {
+    const item = store.getCurr();
+
+    searchInfo.action = item.url;
+    searchInfo.method = item.method;
+    searchInfo.target = item.target;
+    searchInfo.placeholder = item.des;
+    searchInfo.name = item.param.main;
+    searchInfo.icon = item.icon;
+    // 清理附加参数
     dom.value.querySelectorAll("input[type=hidden]").forEach(v => {
         dom.value.removeChild(v);
     });
+    // 添加附加参数
     if (item.param.other) {
         Object.keys(item.param.other).forEach(v => {
             let input = document.createElement("input");
@@ -68,6 +86,7 @@ const changeSearch = function(item) {
         });
     }
 }
+onMounted(() => loadSearch());
 </script>
 
 <style scoped>
@@ -83,6 +102,20 @@ const changeSearch = function(item) {
     left: 8px;
     cursor: pointer;
     user-select: none;
+}
+
+.search-logo .editor {
+    content: '+';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: var(--color-layout);
+    opacity: 0.7;
 }
 
 .search-input {

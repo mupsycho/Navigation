@@ -81,5 +81,16 @@
             "main": "wd"
         },
         "icon": "./icon/baidu.svg"
+    },
+    {
+        "id": "Annas",
+        "name": "共享书库",
+        "des": "来找各种各样的书籍吧",
+        "suggestion": false,
+        "url": "https://annas-archive.org/search",
+        "param": {
+            "main": "q"
+        },
+        "icon": "https://annas-archive.org/favicon-32x32.png"
     }
 ]
