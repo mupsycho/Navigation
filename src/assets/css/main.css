@@ -1,0 +1,38 @@
+@import './base.css';
+@import './iconfonts.css';
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  /* --white-bg: #d4d4d4;
+  --white-layout: #b3b1b1;
+  --white-border: #ccc; */
+  --white-bg: #d4d4d4;
+  --white-layout: #b3b1b1;
+  --white-border: #ccc;
+  
+  --black-bg: #1e1e1e;
+  --black-layout: #252526;
+  --black-border: #333;
+
+  --sky-blue: #47cfff;
+  --sky-yellow: #fee253;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--white-bg);
+  --color-layout: var(--white-layout);
+  --color-font: var(--black-bg);
+  --color-border: var(--black-border);
+}
+
+.dark {
+  --color-background: var(--black-bg);
+  --color-layout: var(--black-layout);
+  --color-font: var(--white-bg);
+  --color-border: var(--white-border);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}

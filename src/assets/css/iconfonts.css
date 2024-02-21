@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4037490 */
+  src: url('iconfont/iconfont.eot?t=1708489089610'); /* IE9 */
+  src: url('iconfont/iconfont.eot?t=1708489089610#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('iconfont/iconfont.woff2?t=1708489089610') format('woff2'),
+        url('iconfont/iconfont.woff?t=1708489089610') format('woff'),
+        url('iconfont/iconfont.ttf?t=1708489089610') format('truetype'),
+        url('iconfont/iconfont.svg?t=1708489089610#iconfont') format('svg');
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  display: inline-block;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-setting:before {
+  content: "\e63f";
+}
+
+.icon-bianji:before {
+  content: "\e600";
+}
+
+.icon-tianjia:before {
+  content: "\e604";
+}
+
+.icon-jianqu-tongyong-:before {
+  content: "\e60e";
+}
+
+.icon-search:before {
+  content: "\e627";
+}
+
+.icon-cha:before {
+  content: "\e609";
+}
+  

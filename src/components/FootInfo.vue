@@ -8,7 +8,7 @@
 
 <style scoped>
 .foot {
-    position: sticky;
+    position: absolute;
     bottom: 0px;
     text-align: center;
     width: 100%;

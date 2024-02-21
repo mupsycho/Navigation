@@ -5,8 +5,7 @@ import App from './App.vue'
 import router from './router'
 
 // import './assets/qweather-icons.css'
-import './assets/iconfonts.css'
-import './assets/main.css'
+import './assets/css/main.css'
 
 const app = createApp(App)
 

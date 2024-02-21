@@ -13,7 +13,7 @@
             <div :class="{ 'search-logo': true }"
                  :style="{ backgroundImage: 'url(' + searchInfo.icon + ')' }"
                  @click.stop="searchSelectView = !searchSelectView">
-                 <div v-if="searchSelectView" class="editor">+</div>
+                 <div v-if="searchSelectView && editorModel" class="editor">+</div>
                 <search-select v-if="searchSelectView"
                                @changeSearch="changeSearch"
                                @lostFocus="searchSelectView = false"></search-select>
@@ -25,9 +25,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, inject } from "vue";
 import { showDialog } from "@/utils/dialog.js";
 import SearchSelect from "./SearchSelect.vue";
+
+const editorModel = inject("editor-mode");
 
 import { useStore } from '@/store/search';
 const store = useStore();

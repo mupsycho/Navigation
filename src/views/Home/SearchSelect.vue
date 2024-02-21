@@ -5,18 +5,20 @@
              @click="clickChoose(v)">
             <span>{{ v.name[0].toLocaleUpperCase() }}</span>
             <img v-if="v.icon" :src="v.icon" alt="">
+            <div v-if="editorModel" class="editor">-</div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, inject } from "vue";
 import { storeToRefs } from 'pinia'
 import { useStore } from '@/store/search';
 
+const editorModel = inject("editor-mode");
+
 const store = useStore();
-const { search, slider } = storeToRefs(store.all);
-if (search.value.length == 0 || slider.value.length == 0) { store.loadLocal(); }
+const { search } = storeToRefs(store.all);
 
 // calc the position
 const getLimtRtoNum = (multiple) => {
@@ -73,6 +75,22 @@ onUnmounted(() => {
     left: 0px;
     transform-origin: center center;
     animation: 0.3s ease-in-out trans forwards;
+}
+.search-select>div .editor {
+    display: none;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: var(--color-layout);
+    opacity: 0.7;
+}
+.search-select>div:hover .editor {
+    display: block;
 }
 
 .search-select>div span {

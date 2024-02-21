@@ -13,11 +13,11 @@ export const useStore = defineStore('search', {
     state: () => {
         let searchInfo = [];
         if (getLocalStorage("searchInfo")) {
-            searchInfo = JSON.parse(getLocalStorage("searchInfo"));
+            searchInfo = JSON.parse(getLocalStorage("searchInfo", "[]"));
         }
         let sliderInfo = [];
         if (getLocalStorage("sliderInfo")) {
-            sliderInfo = JSON.parse(getLocalStorage("sliderInfo"));
+            sliderInfo = JSON.parse(getLocalStorage("sliderInfo", "[]"));
         }
         return {
             searchInfo: searchInfo,
@@ -26,6 +26,7 @@ export const useStore = defineStore('search', {
     },
     getters: {
         all() {
+            if (this.searchInfo.length == 0 && this.sliderInfo.length == 0) { this.loadLocal(); }
             return {
                 search: this.searchInfo,
                 slider: this.sliderInfo
