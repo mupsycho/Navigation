@@ -20,15 +20,17 @@
 
 <script setup>
 import { ref, onMounted, provide } from "vue";
+import { useDarkModeStore } from "@/store/dark.js";
+import { useEditorModeStore } from "@/store/editor.js";
+
 import searchInput from "./SearchInput.vue";
 import darkSwitch from "@/components/DarkSwitch.vue";
 import switchButton from "@/components/SwitchButton.vue";
 import setMenu from "./components/SettingMenu.vue";
-import { useStore } from "@/store/dark.js";
 
 const showSettingMenu = ref(false);
-const dark = ref(useStore().dark);
-const editor = ref(true);
+const dark = ref(useDarkModeStore().dark);
+const editor = ref(useEditorModeStore().editor);
 provide("editor-mode", editor);
 
 const changeDarkMode = function (c) {
