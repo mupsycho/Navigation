@@ -2,7 +2,7 @@
     <div class="search-select">
         <div v-for="(v, i) in search"
              :style="`--i: ${getRenderInfo(i).ri}; --r: ${getRenderInfo(i).rr}; --j: ${getRenderInfo(i).rj - 1}`"
-             @click="clickChoose(v)">
+             @click.stop="clickChoose(v)">
             <span>{{ v.name[0].toLocaleUpperCase() }}</span>
             <img v-if="v.icon" :src="v.icon" alt="">
             <div v-if="editorModel" class="editor">-</div>
@@ -44,7 +44,12 @@ const getRenderInfo = (i) => {
 
 const emit = defineEmits(["changeSearch", "lostFocus"]);
 const clickChoose = function(item) {
-    emit("changeSearch", item);
+    if (!editorModel.value) {
+        emit("changeSearch", item);
+        emit("lostFocus", item);
+    } else {
+        store.delSearch(item);
+    }
 }
 
 const topEvent = function(e) {

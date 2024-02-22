@@ -26,7 +26,8 @@ export const useStore = defineStore('search', {
     },
     getters: {
         all() {
-            if (this.searchInfo.length == 0 && this.sliderInfo.length == 0) { this.loadLocal(); }
+            if (this.searchInfo.length == 0) { this.loadLocalSearch(); }
+            if (this.sliderInfo.length == 0) { this.loadLocalSlider(); }
             return {
                 search: this.searchInfo,
                 slider: this.sliderInfo
@@ -34,7 +35,7 @@ export const useStore = defineStore('search', {
         }
     },
     actions: {
-        loadLocal() {
+        loadLocalSearch() {
             import("@/assets/data/search.json")
                 .then(r => r.default)
                 .then(e => {
@@ -43,14 +44,24 @@ export const useStore = defineStore('search', {
                     });
                     saveLocalStorage("searchInfo", JSON.stringify(this.searchInfo));
                 });
+        },
+        loadLocalSlider() {
             import("@/assets/data/slider.json")
                 .then(r => r.default)
                 .then(e => {
-                    e["data"].forEach(v => {
+                    e.forEach(v => {
                         this.sliderInfo.push(v);
                     });
                     saveLocalStorage("sliderInfo", JSON.stringify(this.sliderInfo));
                 });
+        },
+        delSearch(item) {
+            let i = -1;
+            this.searchInfo.forEach((v, j) => {
+                if (v.id === item.id) i = j;
+            });
+            if (i >= 0) this.searchInfo.splice(i, 1);
+            saveLocalStorage("searchInfo", JSON.stringify(this.searchInfo));
         },
         changeCurr(item) {
             saveLocalStorage("searchCurr", JSON.stringify(item));
@@ -72,4 +83,4 @@ export const useStore = defineStore('search', {
             }, val);
         }
     }
-})
+});

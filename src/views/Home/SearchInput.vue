@@ -13,7 +13,9 @@
             <div :class="{ 'search-logo': true }"
                  :style="{ backgroundImage: 'url(' + searchInfo.icon + ')' }"
                  @click.stop="searchSelectView = !searchSelectView">
-                 <div v-if="searchSelectView && editorModel" class="editor">+</div>
+                <div v-if="searchSelectView && editorModel"
+                     class="editor"
+                     @click="showEditorView = true">+</div>
                 <search-select v-if="searchSelectView"
                                @changeSearch="changeSearch"
                                @lostFocus="searchSelectView = false"></search-select>
@@ -21,6 +23,8 @@
             <div class="icon-cha" @click="m = ''" v-if="m != ''"></div>
             <div class="icon-search" @click="clickSubmit"></div>
         </form>
+        <edit-search v-if="showEditorView"
+                     @cancel="showEditorView = false"></edit-search>
     </div>
 </template>
 
@@ -28,8 +32,10 @@
 import { ref, reactive, onMounted, inject } from "vue";
 import { showDialog } from "@/utils/dialog.js";
 import SearchSelect from "./SearchSelect.vue";
+import EditSearch from "./components/EditSearch.vue";
 
 const editorModel = inject("editor-mode");
+const showEditorView = ref(false);
 
 import { useStore } from '@/store/search';
 const store = useStore();
@@ -118,6 +124,7 @@ onMounted(() => loadSearch());
     text-align: center;
     background-color: var(--color-layout);
     opacity: 0.7;
+    z-index: 1;
 }
 
 .search-input {
@@ -141,15 +148,6 @@ onMounted(() => loadSearch());
     box-sizing: content-box;
     border: 1px solid var(--color-font);
     border-radius: 32px;
-}
-
-.search-input input[type=text]:focus-visible {
-    background: var(--color-layout);
-    outline: none;
-}
-
-.search-input input[type=text]:-internal-autofill-selected {
-    background-color: var(--color-layout) !important;
 }
 
 .icon-search {
