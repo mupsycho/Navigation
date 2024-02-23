@@ -1,5 +1,6 @@
 @import './base.css';
 @import './iconfonts.css';
+@import './color.css';
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   /* --white-bg: #d4d4d4;
