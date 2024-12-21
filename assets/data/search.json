@@ -1,0 +1,44 @@
+[
+    {
+        "name": "必应",
+        "des": "比百度好，且国内能用",
+        "url": "https://cn.bing.com/search?q=%s"
+    },
+    {
+        "name": "谷歌",
+        "des": "谷歌，最好用啦",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "name": "DuckDuckGo",
+        "des": "开启不受网络追踪的搜索之旅",
+        "url": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "name": "BiliBili",
+        "des": "哔哩哔哩 干杯~",
+        "url": "https://search.bilibili.com/all?keyword=%s",
+        "icon": "https://www.bilibili.com/favicon.ico"
+    },
+    {
+        "name": "GitHub",
+        "des": "全球最大共享网站",
+        "url": "https://github.com/search?q=%s&type=repositories"
+    },
+    {
+        "name": "知乎",
+        "des": "不知道怎么说。",
+        "url": "https://www.zhihu.com/search?q=%s&type=content"
+    },
+    {
+        "name": "百度",
+        "des": "百度一下，你就知道",
+        "url": "https://www.baidu.com/s?wd=%s"
+    },
+    {
+        "name": "共享书库",
+        "des": "来找各种各样的书籍吧",
+        "url": "https://annas-archive.org/search?q=%s",
+        "icon": "https://annas-archive.org/favicon-32x32.png"
+    }
+]
