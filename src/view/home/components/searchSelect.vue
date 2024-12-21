@@ -45,9 +45,17 @@ const handleChoose = (item: SearchItem) => {
         <el-scrollbar height="300px">
             <template v-for="item in searchList">
                 <el-card @click="handleChoose(item)">
-                    <el-avatar>
-                        <img :src="item.icon" />
-                    </el-avatar>
+                    <el-popover placement="bottom-start"
+                        :title="item.name"
+                        :width="200"
+                        trigger="hover"
+                        :content="item.des">
+                        <template #reference>
+                            <el-avatar>
+                                <img :src="item.icon" />
+                            </el-avatar>
+                        </template>
+                    </el-popover>
                     <span>{{ item.name }}</span>
                 </el-card>
             </template>
