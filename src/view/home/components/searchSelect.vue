@@ -1,61 +1,25 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { SearchItem, SearchParam } from "../../../types/info";
+import { storeToRefs } from "pinia";
+import { useHomeDataManager } from "../../../store/homeDataManager";
 
-const searchList = ref<SearchItem[]>([]);
-
-fetch("./assets/data/search.json")
-    .then(res => res.json())
-    .then(data => {
-    for (const item of data) {
-        const url = new URL(item.url);
-        const param: SearchParam = {
-            main: "",
-            other: {}
-        };
-
-        url.searchParams.forEach((value, key) => {
-            if (value == "%s") {
-                param.main = key;
-            } else {
-                param.other[key] = value;
-            }
-        });
-
-        searchList.value.push({
-            name: item.name,
-            des: item.des,
-            url: `${url.origin}${url.pathname}`,
-            param: param,
-            icon: item.icon || `${new URL(item.url).origin}/favicon.ico`,
-            method: item.method || "get",
-            target: item.target || "_blank"
-        });
-    }
-});
+const homeDataManager = useHomeDataManager();
+const { searchInfo } = storeToRefs(useHomeDataManager());
 
 const emit = defineEmits(["choose"]);
-const handleChoose = (item: SearchItem) => {
-    emit("choose", item);
+const handleChoose = (item: number) => {
+    homeDataManager.switchSearchInfo(item);
+    emit("choose");
 };
 </script>
 
 <template>
     <div class="search-select">
         <el-scrollbar height="300px">
-            <template v-for="item in searchList">
-                <el-card @click="handleChoose(item)">
-                    <el-popover placement="bottom-start"
-                        :title="item.name"
-                        :width="200"
-                        trigger="hover"
-                        :content="item.des">
-                        <template #reference>
-                            <el-avatar>
-                                <img :src="item.icon" />
-                            </el-avatar>
-                        </template>
-                    </el-popover>
+            <template v-for="item, i in searchInfo" :key="i">
+                <el-card @click="handleChoose(i)">
+                    <el-avatar>
+                        <img :src="item.icon" />
+                    </el-avatar>
                     <span>{{ item.name }}</span>
                 </el-card>
             </template>

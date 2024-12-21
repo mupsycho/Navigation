@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import SearchSelect from "./searchSelect.vue";
-import type { SearchItem, SearchInfo } from "../../../types/info";
 import { ElMessage } from "element-plus";
 import { Search } from "@element-plus/icons-vue";
+import { storeToRefs } from "pinia";
+import { useHomeDataManager } from "../../../store/homeDataManager";
 
 const dialogVisible = ref(false);
 
@@ -11,17 +12,7 @@ const form = reactive({
     input: ""
 });
 
-const searchInfo = reactive<SearchInfo>({
-    icon: "https://www.bing.com/favicon.ico",
-    action: "https://www.bing.com/search",
-    method: "get",
-    target: "_blank",
-    placeholder: "必应搜索",
-    searchKey: {
-        main: "q",
-        other: {}
-    }
-});
+const { searchCurr } = storeToRefs(useHomeDataManager());
 
 const handleSearch = (e: Event) => {
     e.stopPropagation();
@@ -32,37 +23,26 @@ const handleSearch = (e: Event) => {
     }
     (e.target as HTMLFormElement).submit();
 };
-
-const handleChoose = (item: SearchItem) => {
-    searchInfo.icon = item.icon;
-    searchInfo.action = item.url;
-    searchInfo.method = item.method;
-    searchInfo.target = item.target;
-    searchInfo.placeholder = item.des;
-    searchInfo.searchKey.main = item.param.main;
-    searchInfo.searchKey.other = item.param.other || {};
-    dialogVisible.value = false;
-};
 </script>
 
 <template>
     <div class="search-input">
-        <form :method="searchInfo.method" 
-            :action="searchInfo.action" 
-            :target="searchInfo.target"
+        <form :method="searchCurr.method" 
+            :action="searchCurr.action" 
+            :target="searchCurr.target"
             @submit.prevent="handleSearch">
             <div class="search-container">
-                <img @click="dialogVisible = true" :src="searchInfo.icon" class="search-icon" alt="search engine icon" />
+                <img @click="dialogVisible = true" :src="searchCurr.icon" class="search-icon" alt="search engine icon" />
                 <input
                     v-model="form.input"
-                    :placeholder="searchInfo.placeholder"
+                    :placeholder="searchCurr.placeholder"
                     class="search-field"
                     type="text"
-                    :name="searchInfo.searchKey.main"
+                    :name="searchCurr.searchKey.main"
                     autofocus
                 />
-                <template v-for="key in Object.keys(searchInfo.searchKey.other)">
-                    <input :name="key" :value="searchInfo.searchKey.other[key]" type="hidden" />
+                <template v-for="key in Object.keys(searchCurr.searchKey.other)">
+                    <input :name="key" :value="searchCurr.searchKey.other[key]" type="hidden" />
                 </template>
                 <button type="submit" class="search-button">
                     <el-icon><Search /></el-icon>
@@ -70,7 +50,7 @@ const handleChoose = (item: SearchItem) => {
             </div>
         </form>
         <el-dialog v-model="dialogVisible" title="选择搜索引擎" width="80%">
-            <SearchSelect @choose="handleChoose" />
+            <SearchSelect @choose="dialogVisible = false;" />
         </el-dialog>
     </div>
 </template>

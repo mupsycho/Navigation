@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { SliderItem } from '../../../types/slider';
+import { useHomeDataManager } from '../../../store/homeDataManager';
+import { storeToRefs } from 'pinia';
 
-const activeNames = ref<string[]>(['1']);
-const sliderList = ref<SliderItem[]>([]);
-fetch("./assets/data/slider.json").then(res => res.json()).then((data: SliderItem[]) => {
-    for (const item of data) {
-        sliderList.value.push(item);
-    }
-});
+const homeDataManager = useHomeDataManager();
+const { sliderInfo } = storeToRefs(homeDataManager);
+const activeNames = ref<string[]>([]);
 
 const handleClick = (url: string) => {
     window.open(url, "_blank");
@@ -18,7 +15,7 @@ const handleClick = (url: string) => {
 <template>
     <div class="slider-display">
         <el-collapse v-model="activeNames">
-            <el-collapse-item v-for="item in sliderList" :key="item.name" :title="item.name" :name="item.name">
+            <el-collapse-item v-for="item in sliderInfo" :key="item.name" :title="item.name" :name="item.name">
                 <div class="slider-body">
                     <el-card @click="handleClick(i.url)" v-for="i in item.data" :key="i.name">
                         <el-avatar src="https://empty"></el-avatar>

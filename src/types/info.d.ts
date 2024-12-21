@@ -22,3 +22,11 @@ export interface SearchInfo {
     searchKey: SearchParam;
 }
 
+export interface SearchResponse {
+    name: string,
+    des: string,
+    url: string,
+    icon?: string,
+    method?: "get" | "post",
+    target?: "_blank" | "_self"
+}
